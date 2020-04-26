@@ -23,6 +23,22 @@ data =  {
 }
 cursor.execute(SQL, data)
 
+cursor.execute('INSERT INTO table2 (id, completed) VALUES (%s, %s);', (3, True))
+
+cursor.execute('SELECT * FROM table2;')
+
+result = cursor.fetchmany(2)
+print('fetchmany(2)', result)
+
+result2 = cursor.fetchone()
+print('fetchone', result2)
+
+cursor.execute('SELECT * FROM table2;')
+
+result3 = cursor.fetchone()
+print('fetchone', result3)
+
+
 connection.commit()
 
 connection.close()
